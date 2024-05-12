@@ -1,0 +1,28 @@
+public class PrimeSum {
+    
+    // Function to check if a number is prime
+    static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+    
+    // Function to find sum of prime numbers within a range
+    static int primeSum(int start, int end) {
+        int sum = 0;
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i)) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+    
+    public static void main(String[] args) {
+        int start = 1, end = 100; // Example range
+        int sum = primeSum(start, end);
+        System.out.println("Sum of prime numbers between " + start + " and " + end + " is: " + sum);
+    }
+}
